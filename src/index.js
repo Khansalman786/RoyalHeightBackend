@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-dotenv.config({ path: "../.env" });
+dotenv.config();
 
 import express from "express";
 import connectDB from "./config/db.js";
@@ -9,12 +9,8 @@ const app = express();
 
 connectDB();
 
-// middleware
 app.use(express.json());
-
-//router 
-app.use("/user", router);
-
+app.use("/api/user", router);
 
 const PORT = process.env.PORT || 7002;
 
